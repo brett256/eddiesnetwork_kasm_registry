@@ -11,7 +11,7 @@ const nextConfig = {
     contactUrl: 'https://eddies.family',
   },
   reactStrictMode: true,
-  basePath: '/eddiesnetwork_kasm_registry/1.0',
+  basePath: '/eddiesnetwork_kasm_registry/1.1',
   trailingSlash: true,
   images: {
     unoptimized: true,
