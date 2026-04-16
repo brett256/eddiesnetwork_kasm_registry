@@ -7,7 +7,7 @@ const nextConfig = {
     name: 'Eddies Network',
     description: 'My Custom Build Desktops',
     icon: '/img/logo.svg',
-    listUrl: 'https://github.com/brett256/eddiesnetwork_kasm_registry',
+    listUrl: 'https://github.com/brett256/eddiesnetwork_kasm_registry/',
     contactUrl: 'https://eddies.family',
   },
   reactStrictMode: true,
