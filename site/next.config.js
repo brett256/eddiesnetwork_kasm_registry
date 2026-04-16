@@ -1,21 +1,19 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
   output: 'export',
-  distDir: '../public',
+  distDir: '../public',        // adjust if next.config.js is in repo root
   env: {
     name: 'Eddies Network',
     description: 'My Custom Build Desktops',
     icon: '/img/network.svg',
-    listUrl: 'https://brett256.github.io/eddiesnetwork_kasm_registry/',
+    listUrl: 'https://brett256.github.io/eddiesnetwork_kasm_registry/1.1/',
     contactUrl: 'https://github.com/brett256/eddiesnetwork_kasm_registry',
   },
   reactStrictMode: true,
-  basePath: '/eddiesnetwork_kasm_registry',
+  basePath: '/eddiesnetwork_kasm_registry/1.1',
   trailingSlash: true,
   images: {
     unoptimized: true,
-  }
+  },
 }
-
 module.exports = nextConfig
