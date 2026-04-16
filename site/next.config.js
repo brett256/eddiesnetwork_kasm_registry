@@ -6,9 +6,9 @@ const nextConfig = {
   env: {
     name: 'Eddies Network',
     description: 'My Custom Build Desktops',
-    icon: '/img/logo.svg',
+    icon: '/img/network.svg',
     listUrl: 'https://github.com/brett256/eddiesnetwork_kasm_registry/',
-    contactUrl: 'https://eddies.family',
+    contactUrl: 'https://github.com/brett256/eddiesnetwork_kasm_registry/',
   },
   reactStrictMode: true,
   basePath: '/eddiesnetwork_kasm_registry/1.1',
