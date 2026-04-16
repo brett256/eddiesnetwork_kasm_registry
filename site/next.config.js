@@ -10,7 +10,7 @@ const nextConfig = {
     contactUrl: 'https://github.com/brett256/eddiesnetwork_kasm_registry',
   },
   reactStrictMode: true,
-  basePath: '/eddiesnetwork_kasm_registry/1.1',
+  basePath: '/eddiesnetwork_kasm_registry/1.0',
   trailingSlash: true,
   images: {
     unoptimized: true,
