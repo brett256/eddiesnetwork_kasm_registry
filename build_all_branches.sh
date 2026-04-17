@@ -1,7 +1,5 @@
 #!/bin/sh
-
 DEFAULT=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
-
 mkdir base
 cat > base/index.html << EOF
 <meta http-equiv="refresh" content="0; url=./$DEFAULT/">
@@ -12,9 +10,23 @@ touch base/.nojekyll
 echo "All branches:"
 git fetch --all
 echo "$(git branch --remotes --format '%(refname:lstrip=3)' | grep -Ev '^(HEAD|develop|gh-pages)$')"
+
+# Build versions.json array for Kasm
+VERSIONS_JSON="["
+FIRST=true
+
 for BRANCH in $(git branch --remotes --format '%(refname:lstrip=3)' | grep -Ev '^(HEAD|develop|gh-pages)$'); do
     SANITIZED_BRANCH="$(echo $BRANCH | sed 's/\//_/g')"
     echo "$SANITIZED_BRANCH" >> base/versions.txt
+
+    # Build JSON array
+    if [ "$FIRST" = true ]; then
+        VERSIONS_JSON="${VERSIONS_JSON}\"${SANITIZED_BRANCH}\""
+        FIRST=false
+    else
+        VERSIONS_JSON="${VERSIONS_JSON},\"${SANITIZED_BRANCH}\""
+    fi
+
     git checkout --force $BRANCH
     node processing
     cp -a public/. process
@@ -27,5 +39,9 @@ for BRANCH in $(git branch --remotes --format '%(refname:lstrip=3)' | grep -Ev '
     mv public base/$SANITIZED_BRANCH
     cp base/$SANITIZED_BRANCH/favicon.ico base/favicon.ico
 done
+
+# Write versions.json to base (root of gh-pages)
+VERSIONS_JSON="${VERSIONS_JSON}]"
+echo $VERSIONS_JSON > base/versions.json
 
 mv base public
