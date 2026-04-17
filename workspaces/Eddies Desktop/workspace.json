@@ -1,0 +1,19 @@
+{
+  "friendly_name": "Eddies Desktop",
+  "description": "Ubuntu Jammy desktop with root access and AppImage launcher",
+  "image_src": "eddies-desktop.png",
+  "architecture": ["amd64"],
+  "categories": ["Desktop"],
+  "run_config": {
+    "devices": ["/dev/fuse:/dev/fuse:rwm"],
+    "cap_add": ["SYS_ADMIN"],
+    "security_opt": ["apparmor:unconfined"]
+  },
+  "compatibility": [
+    {
+      "version": "1.16.x",
+      "image": "bretteddies/eddies-desktop:1.16",
+      "uncompressed_size_mb": 3500
+    }
+  ]
+}
