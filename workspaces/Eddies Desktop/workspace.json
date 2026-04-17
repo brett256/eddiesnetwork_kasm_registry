@@ -11,7 +11,7 @@
   },
   "compatibility": [
     {
-      "version": "1.16.x",
+      "version": "1.18.x",
       "image": "bretteddies/eddies-desktop:1.16",
       "uncompressed_size_mb": 3500
     }
